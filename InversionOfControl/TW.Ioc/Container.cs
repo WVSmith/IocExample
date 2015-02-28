@@ -21,14 +21,19 @@ namespace TW.Ioc
         }
         public void Register<Interface, Implementation>(LifeStyleType lifeStyle = LifeStyleType.Transient)
         {
-            if (!_registrations.ContainsKey(typeof(Interface)))
+            Register(typeof(Interface), typeof(Implementation), lifeStyle);
+        }
+
+        public void Register(Type type, Type implementation, LifeStyleType lifeStyle = LifeStyleType.Transient)
+        {
+            if (!_registrations.ContainsKey(type))
             {
                 Registration registration = new Registration
                 {
-                    Type = typeof(Implementation),
+                    Type = implementation,
                     LifeStyleType = lifeStyle,
                 };
-                _registrations.TryAdd(typeof(Interface), registration);
+                _registrations.TryAdd(type, registration);
             }
         }
 
@@ -88,5 +93,8 @@ namespace TW.Ioc
             else
                 return Activator.CreateInstance(type);
         }
+
+
+        
     }
 }

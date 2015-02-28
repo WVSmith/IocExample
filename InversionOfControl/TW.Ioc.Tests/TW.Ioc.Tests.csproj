@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerFixtures\RegisterTests.cs" />
+    <Compile Include="ContainerFixtures\ResolveTests.cs" />
+    <Compile Include="ITestInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

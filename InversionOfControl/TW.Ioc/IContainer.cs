@@ -11,5 +11,7 @@ namespace TW.Ioc
         void Register<Interface, Implementation>(LifeStyleType lifeStyle = LifeStyleType.Transient);
         bool IsRegistered(Type type);
         LifeStyleType GetLifeStyleType(Type type);
+        T Resolve<T>();
+        object Resolve(Type type);
     }
 }
